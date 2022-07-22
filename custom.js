@@ -78,13 +78,15 @@ function readTheContent(product) {
 }
 
 function loadHtml() {
-  clearHtml();
+
+  clearHtml()
   buyThings.forEach((product) => {
     const { image, title, price, amount, id } = product;
+   
     const row = document.createElement("div");
     row.classList.add("item");
     
-
+  
     row.innerHTML = `
             <img src="${image}" alt="">
             <div class="item-content">
@@ -96,7 +98,9 @@ function loadHtml() {
             
         `;
 
+       
     containerBuyCart.appendChild(row);
+    
 
     priceTotal.innerHTML = totalCard;
 
@@ -115,7 +119,7 @@ function addLocalStorage() {
 }
 
 window.onload = function () {
-  clearHtml()
+
   const storage = JSON.parse(localStorage.getItem("carrito"));
   if (storage) {
     buyThings = storage;
@@ -126,4 +130,7 @@ window.onload = function () {
     );
   }
   loadHtml();
+  const element = document.getElementById("undefined"); 
+  element.parentNode.removeChild(element);
+
 };
